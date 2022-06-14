@@ -1,0 +1,104 @@
+.root {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .groupCardbox {
+        padding: 30px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        align-items: stretch;
+        border-radius: 15px;
+    }
+
+    .groupCard {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        overflow: hidden;
+        min-height: 255px;
+        cursor: pointer;
+    }
+
+    .rateCard {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        overflow: hidden;
+        min-height: 255px;
+        cursor: pointer;
+    }
+
+    .redCircle {
+        position: absolute;
+    }
+
+    .rateCardbox {
+        padding: 30px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        align-items: flex-end;
+        border-radius: 15px;
+        justify-content: end;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+
+    .placeInGroupSelection {
+        position: relative;
+
+        div {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: var(--white);
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+
+    .placeInTalentSelection {
+        svg {
+            position: relative;
+        }
+
+        div {
+            position: absolute;
+            top: 100px;
+            right: 120px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            line-height: 135%;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .root {
+        grid-template-columns: 1fr;
+    }
+
+    .placeInGroupSelection {
+        svg {
+            position: relative;
+        }
+
+        div {
+            position: absolute;
+            top: 25px;
+            left: 310px;
+            color: var(--white);
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}

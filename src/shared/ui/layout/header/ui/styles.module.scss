@@ -1,0 +1,148 @@
+.root {
+    z-index: 100;
+    height: 520px;
+    margin-bottom: 35px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    background-image: url('./main_header.png');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+.mainMenu_ellipse1 {
+    position: absolute;
+    left: 48%;
+    right: 0;
+    top: 0;
+    bottom: 81.13%;
+}
+
+.mainMenu_bird {
+    position: absolute;
+    left: 59.44%;
+    right: 5.62%;
+    top: 17%;
+    bottom: 81.13%;
+}
+
+
+.mainMenu__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 100px;
+    padding-top: 25px;
+}
+
+.mainMenu__logo {
+    display: flex;
+    position: relative;
+    flex-grow: 0;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.mainMenu__userbar {
+    display: flex;
+    position: relative;
+    flex-grow: 0;
+    align-items: center;
+    margin-right: 45px;
+}
+
+.mainMenu__userContainer {
+    display: flex;
+    padding: 10px 15px;
+    background-color: transparent;
+    padding-right: 50px;
+    margin-right: -50px;
+    border-radius: 2px 0 0 2px;
+
+}
+
+.mainMenu__userLink {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+}
+
+.mainMenu__userName {
+    display: flex;
+    font-size: 1.4rem;
+    line-height: 100%;
+    color: #fff;
+    margin: 0 0 0 15px;
+    font-weight: 300;
+}
+
+.mainMenu__userQuest {
+    display: flex;
+    font-size: 1.4rem;
+    line-height: 100%;
+    color: #fff;
+    margin-right: 15px;
+    font-weight: 300;
+}
+
+.mainMenu__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    padding-left: 40px;
+}
+
+.mainMenu__item1 {
+    font-weight: 800;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.mainMenu__item2 {
+    font-weight: 300;
+    font-size: 90px;
+}
+
+.mainMenu__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.mainMenu__item1,
+.mainMenu__item2 {
+    color: #ffffff;
+}
+
+.mainMenu__item2 img {
+    position: absolute;
+    top: -1%;
+    left: 27%;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width: 1480px) {
+    .mainMenu__item2 img {
+        display: block;
+        position: absolute;
+        top: -13px;
+        left: 280px;
+    }
+}
+
+@media (min-width: 1480px) {
+    .mainMenu__item2 img {
+        display: block;
+        position: absolute;
+        top: -13px;
+        left: calc(50% - 440px);
+    }
+}

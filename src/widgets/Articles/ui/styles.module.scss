@@ -1,0 +1,173 @@
+.root {
+    display: grid;
+    gap: 30px;
+    grid-template-areas:
+        "card-0 card-1 card-1 card-6"
+        "card-0 card-1 card-1 card-6"
+        "card-0 card-3 card-4 card-6"
+        "card-0 card-3 card-4 card-6"
+        "card-2 card-2 card-5 card-6"
+        "card-2 card-2 card-5 card-6";
+
+    .card-0,
+    .card-1,
+    .card-2,
+    .card-3,
+    .card-4,
+    .card-5,
+    .card-6 {
+        background: #FFFFFF;
+        border: 1px solid #F2F2F2;
+        border-radius: 15px;
+        display: flex;
+        text-align: left;
+
+        h1 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 35px;
+        }
+
+        section {
+            font-size: 16px;
+        }
+    }
+
+    .card-0 {
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: top;
+
+    }
+
+    .card-1 {
+        background-repeat: no-repeat;
+        background-position-x: right;
+
+    }
+
+    .card-2 {
+        background-repeat: no-repeat;
+        background-position-x: right;
+
+
+    }
+
+    .card-3 {
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-color: var(--gray);
+
+    }
+
+    .card-4 {
+        background-repeat: no-repeat, no-repeat;
+        background-position-x: right, left;
+        background-position-y: top, bottom;
+    }
+
+    .card-5 {
+        background-repeat: no-repeat;
+        background-position-x: right;
+        align-items: center;
+    }
+
+    .card-6 {
+        background-repeat: no-repeat, no-repeat;
+        background-position-x: left, right;
+        background-position-y: top, bottom;
+
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+
+    .card-0 {
+        grid-area: card-0;
+        align-items: end;
+
+        &_position {
+            width: 250px;
+            height: 245px;
+        }
+    }
+
+    .card-1 {
+        grid-area: card-1;
+        height: 318px;
+
+        align-items: baseline;
+
+        &_position {
+            width: 300px;
+        }
+    }
+
+    .card-2 {
+        grid-area: card-2;
+        height: 318px;
+
+        &_position {
+            width: 280px;
+        }
+    }
+
+    .card-3 {
+        grid-area: card-3;
+        width: 318px;
+        height: 319px;
+        align-items: center;
+    }
+
+    .card-4 {
+        grid-area: card-4;
+        width: 318px;
+        height: 319px;
+    }
+
+    .card-5 {
+        grid-area: card-5;
+        width: 100%;
+        height: 319px;
+        width: 318px;
+        align-items: center;
+    }
+
+    .card-6 {
+        grid-area: card-6;
+        align-items: end;
+        width: 319px;
+
+        &_position {
+            width: 250px;
+            height: 245px;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .root {
+        grid-template-areas:
+            "card-6"
+            "card-0"
+            "card-1"
+            "card-2"
+            "card-3"
+            "card-4"
+            "card-5"
+    }
+
+    .card-0,
+    .card-1,
+    .card-2,
+    .card-3,
+    .card-4,
+    .card-5,
+    .card-6 {
+        padding: 30px;
+        width: 90%;
+    }
+
+}

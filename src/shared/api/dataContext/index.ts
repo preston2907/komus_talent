@@ -1,0 +1,13 @@
+import { UserData } from './user';
+import { ArticleData } from './article';
+import { GroupData } from "./userGroup";
+import { RateData } from "./userRate";
+import { TalentData } from "./userTalent";
+import { RoadmapData } from './roadmap';
+
+export const GroupContext = new GroupData();
+export const RateContext = new RateData();
+export const TalentContext = new TalentData();
+export const ArticlesContext = new ArticleData();
+export const UserContext = new UserData();
+export const RoadmapContext = new RoadmapData();
