@@ -1,5 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes, useEffect } from "react";
-import {userModel} from '@entities/User'
+import { userModel } from "@entities/User";
 import { UserGroupCard, userGroupModel } from "@entities/GroupCard";
 import { UserRateCard, userRateModel } from "@entities/RateCard";
 import { WithSkeleton } from "@ui/WithSkeleton";
@@ -11,8 +11,10 @@ import EllipseSvg from "../assets/ellipse.svg";
 import RedCircleSvg from "../assets/redCircle.svg";
 import PlaceInGroupSvg from "../assets/placeInGroup.svg";
 import Button from "@shared/ui/Button/ui";
-import { modalActions } from '@features/Modal/redux/ModalSlices';
-import { ModalKey } from '@features/Modal/components/ModalController';
+import { modalActions } from "@features/Modal/redux/ModalSlices";
+import { ModalKey } from "@features/Modal/components/ModalController";
+import { Link } from "react-router-dom";
+import { UserTalentState } from "@entities/GroupCard/model/talent/slices";
 
 interface userWidgetsProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -24,7 +26,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
 
   const dispatch = useDispatch();
 
-  const onClickHandler = (groupId: string) => {
+  const onClickGroupHandler = (groupId: string) => {
     dispatch(
       modalActions.showModal({
         key: ModalKey.UserGroupWidget,
@@ -43,6 +45,9 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
   const userRateResponse = useSelector(
     (state: { userRate: userRateModel.slices.UserRateState }) => state.userRate
   );
+  const userTalentResponse = useSelector(
+    (state: { userTalent: UserTalentState }) => state.userTalent
+  );
 
   useEffect(() => {
     dispatch(userGroupModel.actions.getUserGroupByUserId("1"));
@@ -60,7 +65,10 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
         isEmpty={userGroupResponse.entity === null}
         isLoading={userGroupResponse.isLoading}
       >
-        <UserGroupCard className={styles.groupCard} onClick={() => onClickHandler('1')}>
+        <UserGroupCard
+          className={styles.groupCard}
+          onClick={() => onClickGroupHandler("1")}
+        >
           <div className={styles.groupCardbox}>
             <div>
               <h2>Моя группа</h2>
@@ -75,7 +83,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
             <EllipseSvg />
             <div>
               <span style={{ fontWeight: "700", fontSize: "72px" }}>
-                {userRateResponse?.entity?.placeInRate}
+                {userTalentResponse?.entity?.talentsCount}
               </span>
               <br />
               <span>Мои tаlents</span>
@@ -92,7 +100,17 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
           className={styles.rateCard}
         >
           <div>
-            <RedCircleSvg className={styles.redCircle} />
+            <div className={styles.placeInRateSelection}>
+              <RedCircleSvg className={styles.redCircle} />
+              <div className={styles.placeInRateSelection__place_wrapper}>
+                <span className={styles.placeInRateSelection__place}>
+                  {userRateResponse?.entity?.placeInRate}
+                </span><br/>
+                <span className={styles.placeInRateSelection__place_title}>
+                  место<br/>в рейтинге
+                </span>
+              </div>
+            </div>
             <div className={styles.placeInGroupSelection}>
               <PlaceInGroupSvg />
               <div>
@@ -107,9 +125,11 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
             </div>
           </div>
           <div className={styles.rateCardbox}>
-            <Button mode="red" withCircle>
-              Подробнее
-            </Button>
+            <Link to={"/rates"}>
+              <Button type="button" mode="red" withCircle>
+                Подробнее
+              </Button>
+            </Link>
           </div>
         </UserRateCard>
       </WithSkeleton>

@@ -18,7 +18,7 @@ interface PreMainProps
 
 const PreMain: React.FC<PreMainProps> = props => {
   const { data, isLoading, isError } = useData<INews>(() =>
-    ProgramContext.getProgramById({ programId: "1" })
+    ProgramContext.getArticleByCode({ articleCode: "about_program" })
   );
 
   return (

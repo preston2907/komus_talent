@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export const useData = <T>(
 	fn: () => Promise<AxiosResponse<T>>,
+  deps: any[] = []
 ) => {
 const [data, setData] = useState<T | null>(null);
 const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -23,7 +24,7 @@ useEffect(() => {
   };
 
   getData();
-}, []);
+}, deps);
 
 return {data, isLoading, isError}
 }

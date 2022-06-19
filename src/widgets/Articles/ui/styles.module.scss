@@ -26,6 +26,7 @@
             font-weight: 700;
             font-size: 24px;
             margin-bottom: 35px;
+            max-width: 200px;
         }
 
         section {
@@ -55,15 +56,16 @@
 
     .card-3 {
         background-repeat: no-repeat;
-        background-position-x: right;
+        background-position-x: 155px;
+        background-position-y: 20px;
         background-color: var(--gray);
 
     }
 
     .card-4 {
         background-repeat: no-repeat, no-repeat;
-        background-position-x: right, left;
-        background-position-y: top, bottom;
+        background-position-x: 225px, 25px;
+        background-position-y: -25px, 250px;
     }
 
     .card-5 {

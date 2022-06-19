@@ -1,6 +1,7 @@
 import { RateListItemDTO } from "@shared/api/dto";
 import Arrow from "@shared/ui/icons/Arrow";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import cn from "classnames";
 import styles from "./styles.module.scss";
 
 interface TableProps
@@ -13,17 +14,26 @@ interface TableProps
 }
 
 const useSortableData = (items, config = null) => {
-  console.log(items);
   const [sortConfig, setSortConfig] = React.useState(config);
 
   const sortedItems = React.useMemo(() => {
     let sortableItems = (items && [...items]) || [];
     if (sortConfig !== null) {
       sortableItems.sort((a, b) => {
-        if (a[sortConfig.key] < b[sortConfig.key]) {
+        let first = a[sortConfig.key];
+        let second = b[sortConfig.key];
+
+        if (
+          typeof a[sortConfig.key] === "object" &&
+          sortConfig.param !== null
+        ) {
+          first = a[sortConfig.key][sortConfig.param];
+          second = b[sortConfig.key][sortConfig.param];
+        }
+        if (first < second) {
           return sortConfig.direction === "ascending" ? -1 : 1;
         }
-        if (a[sortConfig.key] > b[sortConfig.key]) {
+        if (first > second) {
           return sortConfig.direction === "ascending" ? 1 : -1;
         }
         return 0;
@@ -32,8 +42,7 @@ const useSortableData = (items, config = null) => {
     return sortableItems;
   }, [items, sortConfig]);
 
-  const requestSort = key => {
-    console.log(key);
+  const requestSort = (key, param = null) => {
     let direction = "ascending";
     if (
       sortConfig &&
@@ -42,7 +51,7 @@ const useSortableData = (items, config = null) => {
     ) {
       direction = "descending";
     }
-    setSortConfig({ key, direction });
+    setSortConfig({ key, direction, param });
   };
 
   return { items: sortedItems, requestSort, sortConfig };
@@ -52,9 +61,8 @@ const TableContent: React.FC<TableProps> = props => {
   const { className, data } = props;
 
   const { items, requestSort, sortConfig } = useSortableData(data);
-  console.log(requestSort);
+
   const getClassNamesFor = name => {
-    console.log("sortConfig", sortConfig);
     if (!sortConfig) {
       return;
     }
@@ -66,37 +74,71 @@ const TableContent: React.FC<TableProps> = props => {
       <thead className={styles.table__thead}>
         <tr>
           <th>
-            Место в рейтинге
-            <img
-              src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
-              onClick={() => requestSort("placeInRaiting")}
-              className={getClassNamesFor("placeInRaiting")}
-            />
+            <span onClick={() => requestSort("placeInRaiting")}>
+              Место в рейтинге
+              <img
+                src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                onClick={() => requestSort("placeInRaiting")}
+                className={cn(
+                  styles.direction,
+                  getClassNamesFor("placeInRaiting")
+                )}
+              />
+            </span>
+          </th>
+          <th className={styles.table__thead__th__flex}>
+            <div>
+              <span onClick={() => requestSort("groupName")}>
+                Название группы
+                <img
+                  src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                  onClick={() => requestSort("groupName")}
+                  className={cn(
+                    styles.direction,
+                    getClassNamesFor("groupName")
+                  )}
+                />
+              </span>
+            </div>
+            <div>
+              <span onClick={() => requestSort("curator", "fullname")}>
+                Куратор
+                <img
+                  src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                  onClick={() => requestSort("curator", "fullname")}
+                  className={cn(styles.direction, getClassNamesFor("fullname"))}
+                />
+              </span>
+            </div>
           </th>
           <th>
-            Name
-            <img
-              src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
-              onClick={() => requestSort("groupName")}
-              className={getClassNamesFor("groupName")}
-            />
-          </th>
-          <th>
-            Talents
-            <img
-              src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
-              onClick={() => requestSort("talentsCount")}
-              className={getClassNamesFor("talentsCount")}
-            />
+            <span onClick={() => requestSort("talentsCount")}>
+              Talents
+              <img
+                src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                onClick={() => requestSort("talentsCount")}
+                className={cn(
+                  styles.direction,
+                  getClassNamesFor("talentsCount")
+                )}
+              />
+            </span>
           </th>
         </tr>
       </thead>
       <tbody className={styles.table__tbody}>
         {data &&
           items.map((item, i) => (
-            <tr key={item.groupId}>
-              <td>{item.placeInRaiting}</td>
-              <td>{`${item.groupName} ${item.curator.fullname}`}</td>
+            <tr key={i} className={styles.table__row}>
+              <td className={styles.table__place_td}>
+                <span className={styles.table__place_td__place_num}>
+                  {item.placeInRaiting}
+                </span>
+              </td>
+              <td>
+                <p>{item.groupName}</p>
+                <p>{item.curator.fullname}</p>
+              </td>
               <td>{item.talentsCount}</td>
             </tr>
           ))}

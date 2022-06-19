@@ -4,6 +4,10 @@ interface CssExports {
   'groupCard': string;
   'groupCardbox': string;
   'placeInGroupSelection': string;
+  'placeInRateSelection': string;
+  'placeInRateSelection__place': string;
+  'placeInRateSelection__place_title': string;
+  'placeInRateSelection__place_wrapper': string;
   'placeInTalentSelection': string;
   'rateCard': string;
   'rateCardbox': string;

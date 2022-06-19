@@ -33,7 +33,7 @@ export const Search: React.FC<SearchProps> = props => {
   const goToSearch = () => {
     setSearchParam &&
       setSearchParam(
-        { search_user: searchValue },
+        { search: searchValue },
         {
           replace: true,
         }

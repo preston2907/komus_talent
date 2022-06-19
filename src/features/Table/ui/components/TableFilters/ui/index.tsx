@@ -1,10 +1,12 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
-import { RateListItemDTO } from "@shared/api/dto";
+import React, {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  MouseEventHandler,
+} from "react";
 
 import cn from "classnames";
 import styles from "./styles.module.scss";
-import { useData } from "@shared/helpers/hooks/useData";
-import { RateContext } from "@shared/api/dataContext/fake";
+import { IFilterItems } from "@widgets/TableRate/ui/TableRate";
 
 interface ITableFiltersBody
   extends DetailedHTMLProps<
@@ -12,16 +14,36 @@ interface ITableFiltersBody
     HTMLTableElement
   > {
   className?: string;
+  filterItems?: Array<IFilterItems>;
+  currentFilterItemId?: number;
+  changeFilterItem?: (event: any) => void;
 }
 
 const TableFilters: React.FC<ITableFiltersBody> = props => {
-  const { data, isError, isLoading } = useData<RateListItemDTO[]>(() =>
-    RateContext.getGeneralRateListByRaitingId({ raitingId: "1" })
+  const { className, filterItems, currentFilterItemId, changeFilterItem } =
+    props;
+
+  return (
+    <div className={styles.root}>
+      {filterItems.map(filterItem => {
+        return (
+          <button
+            className={
+              currentFilterItemId === filterItem.id
+                ? styles.root__btn_active
+                : styles.root__btn
+            }
+            type="button"
+            key={filterItem.id}
+            onClick={changeFilterItem}
+            id={String(filterItem.id)}
+          >
+            {filterItem.title}
+          </button>
+        );
+      })}
+    </div>
   );
-
-  const { className } = props;
-
-  return <div className='1'>TableFilters</div>;
 };
 
 export default TableFilters;

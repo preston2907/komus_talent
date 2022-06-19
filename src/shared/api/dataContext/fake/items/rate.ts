@@ -13,7 +13,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
     groupName: "Группа 1",
     curator: {
       id: "1",
-      fullname: "Козырева Маргарита Анатольевна",
+      fullname: "Боб Маргарита Анатольевна",
       positionName: "Менеджер",
     },
     talentsCount: 75,
@@ -24,7 +24,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
     groupName: "Группа 2",
     curator: {
       id: "2",
-      fullname: "Бадьянова Наталья Михайловна",
+      fullname: "Аба Наталья Михайловна",
       positionName: "Технолог",
     },
     talentsCount: 53,
@@ -35,7 +35,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
     groupName: "Группа 3",
     curator: {
       id: "3",
-      fullname: "Рогов Марк Васильевич",
+      fullname: "Вогов Марк Васильевич",
       positionName: "Директор",
     },
     talentsCount: 33,
@@ -59,7 +59,7 @@ export const userRateListInGroupByRaitingId: RateListItemDTO[] = [
     groupName: "Группа 1",
     curator: {
       id: "2",
-      fullname: "Шорохова Ольга Васильевна",
+      fullname: "Шорохова Инна Васильевна",
       positionName: "Менеджер",
     },
     talentsCount: 75,
@@ -86,7 +86,7 @@ export const groupRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Козырева Маргарита Анатольевна",
       positionName: "Менеджер",
     },
-    talentsCount: 99,
+    talentsCount: 999,
   },
   {
     placeInRaiting: 2,

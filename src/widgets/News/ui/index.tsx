@@ -6,16 +6,17 @@ import cn from "classnames";
 import styles from "./styles.module.scss";
 import { INews } from "@shared/api/interfaces";
 import { ProgramContext } from "@shared/api/dataContext/fake";
+import { AxiosResponse } from "axios";
 
-interface AboutProgramProps
+interface NewsWidgetProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string;
+  onClick?: <T>() => Promise<AxiosResponse<T>>;
 }
 
-const AboutProgram: React.FC<AboutProgramProps> = props => {
-  const { data, isLoading, isError } = useData<INews>(() =>
-    ProgramContext.getProgramById({ programId: "1" })
-  );
+const NewsWidget: React.FC<NewsWidgetProps> = props => {
+  const { onClick } = props;
+  const { data, isLoading, isError } = useData<INews>(onClick);
 
   return (
     <WithSkeleton isLoading={isLoading} isEmpty={data === null}>
@@ -26,4 +27,4 @@ const AboutProgram: React.FC<AboutProgramProps> = props => {
   );
 };
 
-export default AboutProgram;
+export default NewsWidget;

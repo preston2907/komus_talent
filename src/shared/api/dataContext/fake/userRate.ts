@@ -14,24 +14,27 @@ export class RateData {
     return data;
   }
 
-  getGeneralRateListByRaitingId(payload: {
+  getRateListByRaitingId(payload: {
     raitingId: string;
+    filterId: number;
   }): ResponseResult<RateListItemDTO[]> {
-    const data = httpServiceMock<RateListItemDTO[]>(generalRateListByRaitingId);
-    return data;
-  }
-  getUserRateListInGroupByRaitingId(payload: {
-    raitingId: string;
-  }): ResponseResult<RateListItemDTO[]> {
-    const data = httpServiceMock<RateListItemDTO[]>(
-      userRateListInGroupByRaitingId
-    );
-    return data;
-  }
-  getGroupRatesListByRaitingId(payload: {
-    raitingId: string;
-  }): ResponseResult<RateListItemDTO[]> {
-    const data = httpServiceMock<RateListItemDTO[]>(groupRateListByRaitingId);
-    return data;
+    if (payload.filterId === 1) {
+      const data = httpServiceMock<RateListItemDTO[]>(
+        generalRateListByRaitingId
+      );
+      return data;
+    }
+    if (payload.filterId === 2) {
+      const data = httpServiceMock<RateListItemDTO[]>(
+        userRateListInGroupByRaitingId
+      );
+      return data;
+    }
+    if (payload.filterId === 3) {
+      const data = httpServiceMock<RateListItemDTO[]>(groupRateListByRaitingId);
+      return data;
+    }
+
+    return null;
   }
 }

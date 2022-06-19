@@ -3,7 +3,7 @@ import { CuratorsWidget } from "@widgets/CuratorsWidget";
 import { ExpertsWidget } from "@widgets/ExpertsWidget";
 import { RoadmapWidget } from "@widgets/roadmap";
 import { UserGroupWidget } from '@widgets/UserGroup';
-import { AboutProgramWidget } from '@widgets/AboutProgram';
+import { NewsWidget } from '@widgets/News';
 
 
 export enum ModalKey {
@@ -12,7 +12,7 @@ export enum ModalKey {
   ExpertsWidget = "EXPERTS_WIDGET",
   RoadmapWidget = "ROADMAP_WIDGET",
   UserGroupWidget = "USER_GROUP_WIDGET",
-  AboutProgramWidget = "ABOUT_PROGRAM_WIDGET",
+  NewsWidget = "NEWS_WIDGET",
 }
 
 export type ModalKeyToPayload = {
@@ -21,7 +21,7 @@ export type ModalKeyToPayload = {
   [ModalKey.ExpertsWidget]: { readonly groupId: number | string | null };
   [ModalKey.RoadmapWidget]: { readonly groupId: number | string | null };
   [ModalKey.UserGroupWidget]: { readonly groupId: number | string | null };
-  [ModalKey.AboutProgramWidget]: { readonly programId: number | string | null };
+  [ModalKey.NewsWidget]: any;
 };
 
 export const MODAL_KEY_TO_COMPONENT_MAP: {
@@ -40,8 +40,8 @@ export const MODAL_KEY_TO_COMPONENT_MAP: {
   [ModalKey.UserGroupWidget]: payload => {
     return <UserGroupWidget {...payload} />;
   },
-  [ModalKey.AboutProgramWidget]: payload => {
-    return <AboutProgramWidget {...payload} />;
+  [ModalKey.NewsWidget]: payload => {
+    return <NewsWidget {...payload} />;
   },
 };
 

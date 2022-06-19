@@ -2,10 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   'root': string;
-  'root__talent_widget': string;
-  'root__talent_wrapper': string;
-  'root__talent_wrapper_place': string;
-  'root__talent_wrapper_title': string;
+  'root__filter': string;
+  'root__search': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

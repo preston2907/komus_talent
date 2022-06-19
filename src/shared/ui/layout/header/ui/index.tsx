@@ -47,13 +47,14 @@ const Header: React.FC<HeaderProps> = props => {
             />
           </Link>
         </div>
-        <WithSkeleton
-          isLoading={userState.isLoading}
-          isEmpty={userState.entity === null}
-        >
-          {userState.entity && (
-            <div className={styles.mainMenu__userbar}>
-              <div className={styles.mainMenu__userContainer}>
+
+        <div className={styles.mainMenu__userbar}>
+          <div className={styles.mainMenu__userContainer}>
+            <WithSkeleton
+              isLoading={userState.isLoading}
+              isEmpty={userState.entity === null}
+            >
+              {userState.entity && (
                 <a href="" className={styles.mainMenu__userLink}>
                   <div className={styles.mainMenu__userQuest}>
                     Задать вопрос
@@ -66,10 +67,10 @@ const Header: React.FC<HeaderProps> = props => {
                     {userState.entity.fullname}
                   </div>
                 </a>
-              </div>
-            </div>
-          )}
-        </WithSkeleton>
+              )}{" "}
+            </WithSkeleton>
+          </div>
+        </div>
       </div>
       <div className={styles.mainMenu__item}>
         <div className={styles.mainMenu__item1}>

@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
 import { modalActions } from "@features/Modal/redux/ModalSlices";
 import { ModalKey } from "@features/Modal/components/ModalController";
+import { ProgramContext } from "@shared/api/dataContext/fake";
 
 const Articles = () => {
   const { data, isLoading, isError } = useData<ArticleType[]>(() =>
@@ -81,7 +82,13 @@ const Articles = () => {
       case "roadmap":
         return { ModalKey: ModalKey.RoadmapWidget, withBackground: true };
       case "about_programm":
-        return { ModalKey: ModalKey.AboutProgramWidget, withBackground: true };
+        return {
+          ModalKey: ModalKey.NewsWidget,
+          withBackground: true,
+          payload: {
+            onClick: () => ProgramContext.getArticleByCode({ articleCode: "about_program" }),
+          },
+        };
       default:
         return { ModalKey: ModalKey.Default, withBackground: true };
     }
@@ -95,6 +102,7 @@ const Articles = () => {
         key: setModal(articleKey).ModalKey,
         withBackground: setModal(articleKey).withBackground,
         payload: {
+          ...setModal(articleKey).payload,
           groupId: groupId,
         },
       })
