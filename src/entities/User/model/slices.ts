@@ -1,5 +1,5 @@
 import { UserType } from "@api/types";
-import { getCurrentUser } from "./actions";
+import { getCurrentUser, getUserById } from "./actions";
 import { createSlice, SerializedError } from "@reduxjs/toolkit";
 
 export type UserState = {
@@ -27,6 +27,17 @@ const UserSlices = createSlice({
       state.isLoading = false;
     });
     builder.addCase(getCurrentUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    });
+    builder.addCase(getUserById.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getUserById.fulfilled, (state, action) => {
+      state.entity = action.payload.data;
+      state.isLoading = false;
+    });
+    builder.addCase(getUserById.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error;
     });

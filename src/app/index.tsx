@@ -11,21 +11,62 @@ import { CuratorsWidget } from "@widgets/CuratorsWidget";
 
 import "./index.scss";
 import Modal from "@features/Modal/containers/ModalContainer";
-import { PreMain } from '@pages/pre-main';
-import { RatePage } from '@pages/rates';
+import { RatePage } from "@pages/rates";
+import { PrivatePage } from "@pages/private";
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PreMain />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/rates" element={<RatePage />} />
-          <Route path="/roadmap" element={<RoadmapWidget />} />
-          <Route path="/group" element={<UserGroupWidget />} />
-          <Route path="/experts" element={<ExpertsWidget />} />
-          <Route path="/curators" element={<CuratorsWidget />} />
+          <Route
+            path="/"
+            element={
+              <PrivatePage>
+                <Main />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/rates"
+            element={
+              <PrivatePage>
+                <RatePage />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/roadmap"
+            element={
+              <PrivatePage>
+                <RoadmapWidget />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/group"
+            element={
+              <PrivatePage>
+                <UserGroupWidget />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/experts"
+            element={
+              <PrivatePage>
+                <ExpertsWidget />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/curators"
+            element={
+              <PrivatePage>
+                <CuratorsWidget />
+              </PrivatePage>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <Modal />

@@ -5,3 +5,7 @@ export const userData: UserType = {
   fullname: "Козырева Маргарита Анатольевна",
   positionName: "JavaScript разработчик",
 };
+
+export const userStatus: { status: boolean } = {
+  status: true,
+};

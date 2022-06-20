@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = props => {
       </div>
       <div className={styles.mainMenu__wrapper}>
         <div className={styles.mainMenu__logo}>
-          <Link to="/main">
+          <Link to="/">
             <img
               src={`${process.env["PUBLIC"]}/images/MainLogo.png`}
               alt="logo"
