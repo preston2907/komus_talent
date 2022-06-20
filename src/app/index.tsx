@@ -3,22 +3,25 @@ import { Provider } from "react-redux";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Main from "@pages/main/Main";
-import store from "@shared/api/store";
+import { PreMain } from "@pages/pre-main";
 import { RoadmapWidget } from "@widgets/roadmap";
 import { UserGroupWidget } from "@widgets/UserGroup";
 import { ExpertsWidget } from "@widgets/ExpertsWidget";
 import { CuratorsWidget } from "@widgets/CuratorsWidget";
 
-import "./index.scss";
 import Modal from "@features/Modal/containers/ModalContainer";
 import { RatePage } from "@pages/rates";
 import { PrivatePage } from "@pages/private";
+
+import store from "@shared/api/store";
+import "./index.scss";
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/pre" element={<PreMain />} />
           <Route
             path="/"
             element={

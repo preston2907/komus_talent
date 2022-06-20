@@ -44,7 +44,7 @@ const PrivatePage: React.FC<Props> = (props: any) => {
   if (status === null) {
     return <Spinner />;
   }
-  return <div>{status === true ? children : <PreMain />}</div>;
+  return <div>{status === true ? children : <Navigate to="/pre" />}</div>;
 };
 
 export { PrivatePage };
