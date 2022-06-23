@@ -21,9 +21,10 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/pre" element={<PreMain />} />
+          <Route path="/view_doc.html?mode=komus_talents" element={<Main />} />
+          <Route path="/komus_talents/pre" element={<PreMain />} />
           <Route
-            path="/"
+            path="/komus_talents"
             element={
               <PrivatePage>
                 <Main />
@@ -31,7 +32,7 @@ const App = () => {
             }
           />
           <Route
-            path="/rates"
+            path="/komus_talents/rates"
             element={
               <PrivatePage>
                 <RatePage />
@@ -39,7 +40,7 @@ const App = () => {
             }
           />
           <Route
-            path="/roadmap"
+            path="/komus_talents/roadmap"
             element={
               <PrivatePage>
                 <RoadmapWidget />
@@ -47,7 +48,7 @@ const App = () => {
             }
           />
           <Route
-            path="/group"
+            path="/komus_talents/group"
             element={
               <PrivatePage>
                 <UserGroupWidget />
@@ -55,7 +56,7 @@ const App = () => {
             }
           />
           <Route
-            path="/experts"
+            path="/komus_talents/experts"
             element={
               <PrivatePage>
                 <ExpertsWidget />
@@ -63,12 +64,16 @@ const App = () => {
             }
           />
           <Route
-            path="/curators"
+            path="/komus_talents/curators"
             element={
               <PrivatePage>
                 <CuratorsWidget />
               </PrivatePage>
             }
+          />
+          <Route
+            path="*"
+            element={<div className="not-found">Страницы не существует</div>}
           />
         </Routes>
       </BrowserRouter>
