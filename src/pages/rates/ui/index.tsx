@@ -54,7 +54,7 @@ const Rates: React.FC<any> = props => {
             <span className={styles.root__talent_wrapper_place}>
               {userRateResponse?.entity?.placeInRate}
             </span>
-            <img src={process.env["PUBLIC"] + "images/vectors/vector12.svg"} />
+            <img src={process.env["PUBLIC"] + "/images/vectors/vector12.svg"} />
           </div>
           <button type='button' onClick={() => onClickHandler()}>Правила геймификации</button>
         </div>

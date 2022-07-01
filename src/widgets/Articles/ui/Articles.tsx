@@ -22,45 +22,45 @@ const Articles = () => {
       case 0:
         return {
           backgroundImage:
-            'url("' + process.env["PUBLIC"] + 'images/vectors/vector1.svg")',
+            "url('" + process.env["PUBLIC"] + "/images/vectors/vector1.svg')",
         };
       case 1:
         return {
           backgroundImage:
-            'url("' + process.env["PUBLIC"] + 'images/vectors/vector2.svg")',
+            'url("' + process.env["PUBLIC"] + '/images/vectors/vector2.svg")',
         };
       case 2:
         return {
           backgroundImage:
-            'url("' + process.env["PUBLIC"] + 'images/vectors/vector2.svg")',
+            'url("' + process.env["PUBLIC"] + '/images/vectors/vector2.svg")',
         };
       case 3:
         return {
           backgroundImage:
-            'url("' + process.env["PUBLIC"] + 'images/vectors/vector4.svg")',
+            'url("' + process.env["PUBLIC"] + '/images/vectors/vector4.svg")',
         };
       case 4:
         return {
           backgroundImage:
             'url("' +
             process.env["PUBLIC"] +
-            'images/vectors/vector9.svg"), url("' +
+            '/images/vectors/vector9.svg"), url("' +
             process.env["PUBLIC"] +
-            'images/vectors/vector10.svg")',
+            '/images/vectors/vector10.svg")',
         };
       case 5:
         return {
           backgroundImage:
-            'url("' + process.env["PUBLIC"] + 'images/vectors/vector8.svg")',
+            'url("' + process.env["PUBLIC"] + '/images/vectors/vector8.svg")',
         };
       case 6:
         return {
           backgroundImage:
             'url("' +
             process.env["PUBLIC"] +
-            'images/vectors/vector6.svg"), url("' +
+            '/images/vectors/vector6.svg"), url("' +
             process.env["PUBLIC"] +
-            'images/vectors/vector7.svg")',
+            '/images/vectors/vector7.svg")',
         };
 
       default:
@@ -69,7 +69,7 @@ const Articles = () => {
 
     return {
       backgroundImage:
-        'url("' + process.env["PUBLIC"] + 'images/vectors/vector1.svg")',
+        'url("' + process.env["PUBLIC"] + '/images/vectors/vector1.svg")',
     };
   };
 
@@ -86,7 +86,8 @@ const Articles = () => {
           ModalKey: ModalKey.NewsWidget,
           withBackground: true,
           payload: {
-            onClick: () => ProgramContext.getArticleByCode({ articleCode: "about_program" }),
+            onClick: () =>
+              ProgramContext.getArticleByCode({ articleCode: "about_program" }),
           },
         };
       default:
@@ -97,16 +98,24 @@ const Articles = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = (groupId: string, articleKey: string) => {
-    dispatch(
-      modalActions.showModal({
-        key: setModal(articleKey).ModalKey,
-        withBackground: setModal(articleKey).withBackground,
-        payload: {
-          ...setModal(articleKey).payload,
-          groupId: groupId,
-        },
-      })
-    );
+    if (articleKey === "contacts") {
+      window.location.href = "/komus_talents";
+    } else if (articleKey === "calendar") {
+      window.location.href = "/komus_talents";
+    } else if (articleKey === "instruction") {
+      window.location.href = "/komus_talents";
+    } else {
+      dispatch(
+        modalActions.showModal({
+          key: setModal(articleKey).ModalKey,
+          withBackground: setModal(articleKey).withBackground,
+          payload: {
+            ...setModal(articleKey).payload,
+            groupId: groupId,
+          },
+        })
+      );
+    }
   };
 
   return (

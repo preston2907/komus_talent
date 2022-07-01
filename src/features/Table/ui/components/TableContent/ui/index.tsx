@@ -14,7 +14,7 @@ interface TableProps
 }
 
 const useSortableData = (items, config = null) => {
-  const [sortConfig, setSortConfig] = React.useState(config);
+  const [sortConfig, setSortConfig] = React.useState<any>(config);
 
   const sortedItems = React.useMemo(() => {
     let sortableItems = (items && [...items]) || [];
@@ -42,7 +42,7 @@ const useSortableData = (items, config = null) => {
     return sortableItems;
   }, [items, sortConfig]);
 
-  const requestSort = (key, param = null) => {
+  const requestSort = (key: any, param:any = null) => {
     let direction = "ascending";
     if (
       sortConfig &&

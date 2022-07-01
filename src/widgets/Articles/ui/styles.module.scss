@@ -83,7 +83,7 @@
 
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 900px) {
 
 
     .card-0 {
@@ -149,7 +149,7 @@
     }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 900px) {
     .root {
         grid-template-areas:
             "card-6"

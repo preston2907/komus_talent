@@ -3,12 +3,16 @@
 interface CssExports {
   'groupCard': string;
   'groupCardbox': string;
+  'groupCardbox__text': string;
   'placeInGroupSelection': string;
   'placeInRateSelection': string;
   'placeInRateSelection__place': string;
   'placeInRateSelection__place_title': string;
   'placeInRateSelection__place_wrapper': string;
   'placeInTalentSelection': string;
+  'placeInTalentSelection__place': string;
+  'placeInTalentSelection__place_title': string;
+  'placeInTalentSelection__wrapper': string;
   'rateCard': string;
   'rateCardbox': string;
   'redCircle': string;

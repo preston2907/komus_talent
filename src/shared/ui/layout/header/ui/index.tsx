@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = props => {
       className={cn(styles.root, className)}
       style={{
         backgroundImage:
-          'url("' + process.env["PUBLIC"] + 'images/main_header.png")',
+          'url("' + process.env["PUBLIC"] + '/images/main_header.png")',
       }}
     >
       <div className={styles.mainMenu_ellipse1}>
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = props => {
       </div>
       <div className={styles.mainMenu__wrapper}>
         <div className={styles.mainMenu__logo}>
-          <Link to="/">
+          <Link to="/komus_talents">
             <img
               src={`${process.env["PUBLIC"]}/images/MainLogo.png`}
               alt="logo"

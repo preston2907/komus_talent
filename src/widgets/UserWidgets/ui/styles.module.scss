@@ -11,6 +11,22 @@
         grid-template-rows: 1fr auto;
         align-items: stretch;
         border-radius: 15px;
+
+        &__text {
+            & h2 {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            & span {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 135%;
+            }
+        }
     }
 
     .groupCard {
@@ -44,10 +60,9 @@
         justify-content: end;
     }
 
-    .placeInRateSelection__place_wrapper{
+    .placeInRateSelection__place_wrapper {
         position: absolute;
-    top: 100px;
-    left: -333px;
+
     }
 }
 
@@ -70,6 +85,11 @@
     }
 
     .placeInTalentSelection {
+
+        &__wrapper {
+            color: white;
+        }
+
         svg {
             position: relative;
         }
@@ -89,6 +109,12 @@
 
     .placeInRateSelection {
         font-family: "Montserrat";
+
+        &__place_wrapper {
+            color: white;
+            top: 100px;
+            left: -333px;
+        }
 
 
         &__place {
@@ -129,23 +155,75 @@
         grid-template-columns: 1fr;
     }
 
+    .placeInTalentSelection {
+        &__wrapper {
+            position: absolute;
+            top: 70px;
+            right: 90px;
+            color: #fff;
+            line-height: normal;
+            text-align: center;
+        }
+
+        &__place_title {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 16px;
+            color: var(--white);
+        }
+
+        &__place {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 72px;
+            color: var(--white);
+        }
+    }
+
     .placeInGroupSelection {
+
         svg {
             position: relative;
         }
 
         div {
             position: absolute;
-            top: 25px;
-            left: 310px;
+            top: 47px;
+            left: 306px;
             color: var(--white);
             font-weight: 400;
             font-size: 14px;
             text-align: center;
+            line-height: 17px;
         }
     }
 
     .placeInRateSelection {
+
+        &__place_wrapper {
+            width: 200px !important;
+            position: absolute;
+            top: 75px !important;
+            left: 0px !important;
+            color: white;
+        }
+
+        &__place_title {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 16px;
+            color: var(--white);
+        }
+
+        &__place {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 72px;
+            color: var(--white);
+        }
+
         svg {
             position: relative;
         }

@@ -8,7 +8,7 @@ const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const { NODE_ENV } = process.env;
 const isDevMode = NODE_ENV === 'development';
 
-const PUBLIC_PATH = '/komus_talents/app/build/';
+const PUBLIC_PATH = '/komus_tal/app/build/';
 
 module.exports = {
   entry: {
@@ -107,8 +107,8 @@ module.exports = {
       filename: 'index.css',
     }),
     new DefinePlugin({
-      "process.env.PUBLIC": isDevMode ? JSON.stringify("") : JSON.stringify("http://172.16.3.123:81/komus_talents/app/build/public"),
-      "process.env.SERVER": JSON.stringify("http://172.16.3.123:81/komus_talents"),
+      "process.env.PUBLIC": isDevMode ? JSON.stringify("") : JSON.stringify("http://172.16.3.123:81/komus_tal/app/build/public"),
+      "process.env.SERVER": JSON.stringify("http://172.16.3.123:81/komus_tal"),
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),

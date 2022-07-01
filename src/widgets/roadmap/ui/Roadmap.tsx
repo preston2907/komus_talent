@@ -43,10 +43,10 @@ const Roadmap: React.FC<RoadmapProps> = props => {
               const setBgImage = () => {
                 let count = i;
                 if (count < 3) {
-                  return `url("${process.env["PUBLIC"]}images/vectors/vector-card-${count}.svg")`;
+                  return `url("${process.env["PUBLIC"]}/images/vectors/vector-card-${count}.svg")`;
                 } else {
                   count = Math.round(Math.floor(Math.random() * 3));
-                  return `url("${process.env["PUBLIC"]}images/vectors/vector-card-${count}.svg")`;
+                  return `url("${process.env["PUBLIC"]}/images/vectors/vector-card-${count}.svg")`;
                 }
               };
 

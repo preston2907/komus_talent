@@ -70,7 +70,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
           onClick={() => onClickGroupHandler("1")}
         >
           <div className={styles.groupCardbox}>
-            <div>
+            <div className={styles.groupCardbox__text}>
               <h2>Моя группа</h2>
               <span>{userGroupResponse.entity?.shortText}</span>
             </div>
@@ -81,7 +81,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
           </div>
           <div className={styles.placeInTalentSelection}>
             <EllipseSvg />
-            <div>
+            <div className={styles.placeInTalentSelection__wrapper}>
               <span style={{ fontWeight: "700", fontSize: "72px" }}>
                 {userTalentResponse?.entity?.talentsCount}
               </span>
@@ -96,7 +96,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
         isLoading={userRateResponse.isLoading}
       >
         <UserRateCard
-          data={userRateResponse.entity}
+          data={userRateResponse?.entity}
           className={styles.rateCard}
         >
           <div>
@@ -125,7 +125,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
             </div>
           </div>
           <div className={styles.rateCardbox}>
-            <Link to={"/rates"}>
+            <Link to={"/komus_talents/rates"}>
               <Button type="button" mode="red" withCircle>
                 Подробнее
               </Button>

@@ -37,7 +37,7 @@ const UserGroupWidget: React.FC<UsersProps> = props => {
   return (
     <div className={cn(styles.root, className)}>
       <div className={styles.img}>
-        <img src={process.env["PUBLIC"] + 'images/vectors/vector11.svg'}/>
+        <img src={process.env["PUBLIC"] + '/images/vectors/vector11.svg'}/>
       </div>
       
       <WithSkeleton

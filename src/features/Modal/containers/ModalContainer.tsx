@@ -76,7 +76,7 @@ const Modal = (props: Props) => {
           className="modal-clever-content__btn-modal-close"
         >
           <img
-            src={`${process.env["PUBLIC"]}/komus_num/app/images/icons/close.svg`}
+            src={`${process.env["PUBLIC"]}/images/icons/close.svg`}
             alt=""
           />
         </div>
