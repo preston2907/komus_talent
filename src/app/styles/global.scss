@@ -23,7 +23,17 @@ body{
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none;  
+    color: var(--default-text);
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus {
+        text-decoration: underline;
+    }
+    &:active {
+        text-decoration: underline;
+    }
 }
 
 ::-webkit-scrollbar {

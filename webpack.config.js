@@ -108,6 +108,7 @@ module.exports = {
     }),
     new DefinePlugin({
       "process.env.PUBLIC": isDevMode ? JSON.stringify("") : JSON.stringify("http://172.16.3.123:81/komus_tal/app/build/public"),
+      "process.env.PORTAL": isDevMode ? JSON.stringify("http://172.16.3.123:81") : JSON.stringify(""),
       "process.env.SERVER": JSON.stringify("http://172.16.3.123:81/komus_tal"),
     }),
     new CleanWebpackPlugin(),

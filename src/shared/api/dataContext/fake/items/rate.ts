@@ -16,7 +16,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Боб Маргарита Анатольевна",
       positionName: "Менеджер",
     },
-    talentsCount: 75,
+    talentsCount: '75',
   },
   {
     placeInRaiting: 2,
@@ -27,7 +27,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Аба Наталья Михайловна",
       positionName: "Технолог",
     },
-    talentsCount: 53,
+    talentsCount: '53',
   },
   {
     placeInRaiting: 3,
@@ -38,7 +38,7 @@ export const generalRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Вогов Марк Васильевич",
       positionName: "Директор",
     },
-    talentsCount: 33,
+    talentsCount: '33',
   },
 ];
 export const userRateListInGroupByRaitingId: RateListItemDTO[] = [
@@ -51,7 +51,7 @@ export const userRateListInGroupByRaitingId: RateListItemDTO[] = [
       fullname: "Козырева Маргарита Анатольевна",
       positionName: "Менеджер",
     },
-    talentsCount: 99,
+    talentsCount: '99',
   },
   {
     placeInRaiting: 2,
@@ -62,7 +62,7 @@ export const userRateListInGroupByRaitingId: RateListItemDTO[] = [
       fullname: "Шорохова Инна Васильевна",
       positionName: "Менеджер",
     },
-    talentsCount: 75,
+    talentsCount: '75',
   },
   {
     placeInRaiting: 3,
@@ -73,7 +73,7 @@ export const userRateListInGroupByRaitingId: RateListItemDTO[] = [
       fullname: "Игнатьев Игнат Игнатович",
       positionName: "Менеджер",
     },
-    talentsCount: 50,
+    talentsCount: '50',
   },
 ];
 export const groupRateListByRaitingId: RateListItemDTO[] = [
@@ -86,7 +86,7 @@ export const groupRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Козырева Маргарита Анатольевна",
       positionName: "Менеджер",
     },
-    talentsCount: 999,
+    talentsCount: '999',
   },
   {
     placeInRaiting: 2,
@@ -97,7 +97,7 @@ export const groupRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Шорохова Ольга Васильевна",
       positionName: "Менеджер",
     },
-    talentsCount: 75,
+    talentsCount: '75',
   },
   {
     placeInRaiting: 3,
@@ -108,6 +108,6 @@ export const groupRateListByRaitingId: RateListItemDTO[] = [
       fullname: "Игнатьев Игнат Игнатович",
       positionName: "Менеджер",
     },
-    talentsCount: 50,
+    talentsCount: '50',
   },
 ];

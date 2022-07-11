@@ -5,14 +5,14 @@ export class UserData {
   getCurrentUser(): ResponseResult<UserType> {
     const data = httpService<UserType>(
       "GET",
-      "getCurrentUser",
+      "get_current_user",
     );
     return data;
   }
   getUserById(payload: { userId: string }): ResponseResult<UserType> {
     const data = httpService<UserType>(
       "GET",
-      "getUserGroupByUserId",
+      "get_user_by_id",
       `user_id=${payload.userId}`
     );
     return data;

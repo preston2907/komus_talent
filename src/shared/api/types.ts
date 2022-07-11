@@ -26,7 +26,7 @@ export type RateType = {
 };
 
 export type UserTalentType = {
-  talentsCount: number;
+  talents: string;
 };
 export type FooterLinkType = {
   title: string;

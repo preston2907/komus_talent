@@ -13,8 +13,6 @@ interface ModuleCardProps
 const Module: React.FC<ModuleCardProps> = props => {
   const { children, className, style } = props;
 
-  console.log(style)
-
   return (
     <div className={cn(styles.root, className)} style={style}>
       {children}

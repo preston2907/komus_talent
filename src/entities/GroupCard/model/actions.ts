@@ -1,4 +1,4 @@
-import { GroupContext, TalentContext } from "@api/dataContext/fake";
+import { GroupContext, TalentContext } from "@api/dataContext";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getUserGroupByUserId = createAsyncThunk(

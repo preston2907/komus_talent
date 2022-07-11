@@ -32,8 +32,6 @@ const UserGroupWidget: React.FC<UsersProps> = props => {
     userGroupModel.requests.getGroupTutorByGroupId(groupId)
   );
 
-  console.log("tutorData ", tutorData);
-
   return (
     <div className={cn(styles.root, className)}>
       <div className={styles.img}>

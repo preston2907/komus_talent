@@ -1,4 +1,4 @@
-import { GroupContext } from "@shared/api/dataContext/fake";
+import { GroupContext } from "@shared/api/dataContext";
 
 export const getGroupCollaboratorsByGroupId = async (groupId: string) => {
   const data = await GroupContext.getGroupCollaboratorsByGroupId({ groupId });

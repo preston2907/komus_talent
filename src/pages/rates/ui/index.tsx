@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withLayout } from "@ui/layout";
 import { useData } from "@shared/helpers/hooks/useData";
-import { ProgramContext, RateContext } from "@shared/api/dataContext/fake";
+import { ModalContext, ProgramContext, RateContext } from "@shared/api/dataContext";
 import { WithSkeleton } from "@shared/ui/WithSkeleton";
 
 import cn from "classnames";
@@ -36,7 +36,7 @@ const Rates: React.FC<any> = props => {
         key: ModalKey.NewsWidget,
         withBackground: true,
         payload: {
-         onClick: () => ProgramContext.getArticleByCode({ articleCode: "gemification_rules" }),
+         onClick: () => ModalContext.getModalInfo({ articleCode: "gemification_rules" }),
         },
       })
     );

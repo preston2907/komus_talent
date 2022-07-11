@@ -19,17 +19,6 @@ const UserSlices = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(getCurrentUser.pending, (state, action) => {
-      state.isLoading = true;
-    });
-    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
-      state.entity = action.payload.data;
-      state.isLoading = false;
-    });
-    builder.addCase(getCurrentUser.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error;
-    });
     builder.addCase(getUserById.pending, (state, action) => {
       state.isLoading = true;
     });

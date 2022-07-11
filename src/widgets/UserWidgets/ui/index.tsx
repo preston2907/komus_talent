@@ -38,6 +38,9 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
     );
   };
 
+  const user = useSelector(
+    (state: { user: userModel.slices.UserState }) => state.user
+  );
   const userGroupResponse = useSelector(
     (state: { userGroup: userGroupModel.GroupSlices.UserGroupState }) =>
       state.userGroup
@@ -50,14 +53,23 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
   );
 
   useEffect(() => {
-    dispatch(userGroupModel.actions.getUserGroupByUserId("1"));
+    dispatch(userModel.actions.getUserById(null));
   }, [dispatch]);
   useEffect(() => {
-    dispatch(userRateModel.actions.getUserRateByUserId("1"));
-  }, [dispatch]);
+    if (user.entity) {
+      dispatch(userGroupModel.actions.getUserGroupByUserId(user.entity.id));
+    }
+  }, [dispatch, user.entity]);
   useEffect(() => {
-    dispatch(userGroupModel.actions.getUserTalentsByUserId("1"));
-  }, [dispatch]);
+    if (user.entity) {
+      dispatch(userRateModel.actions.getUserRateByUserId(user.entity.id));
+    }
+  }, [dispatch, user.entity]);
+  useEffect(() => {
+    if (user.entity) {
+      dispatch(userGroupModel.actions.getUserTalentsByUserId(user.entity.id));
+    }
+  }, [dispatch, user.entity]);
 
   return (
     <div className={cn(styles.root, className)}>
@@ -83,7 +95,7 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
             <EllipseSvg />
             <div className={styles.placeInTalentSelection__wrapper}>
               <span style={{ fontWeight: "700", fontSize: "72px" }}>
-                {userTalentResponse?.entity?.talentsCount}
+                {userTalentResponse?.entity?.talents}
               </span>
               <br />
               <span>Мои tаlents</span>
@@ -105,9 +117,11 @@ const UserWidgets: React.FC<userWidgetsProps> = props => {
               <div className={styles.placeInRateSelection__place_wrapper}>
                 <span className={styles.placeInRateSelection__place}>
                   {userRateResponse?.entity?.placeInRate}
-                </span><br/>
+                </span>
+                <br />
                 <span className={styles.placeInRateSelection__place_title}>
-                  место<br/>в рейтинге
+                  место
+                  <br />в рейтинге
                 </span>
               </div>
             </div>

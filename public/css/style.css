@@ -26,7 +26,7 @@
   }
 
   .container {
-    max-width: 1382px;
+    max-width: 1200px;
     padding: 0 15px;
     margin: auto;
   }
@@ -80,15 +80,12 @@
     vertical-align: middle;
     text-align: left;
     white-space: normal;
-    padding: 80px;
-    margin: 70px;
     box-sizing: border-box;
     border-radius: 20px;
-    top: 0px;
-    height: initial;
+    height: 90vh;
     overflow-x: hidden;
+    padding: 30px;
     width: 95%;
-    left: -50px;
   }
   
   /* font-family: 'Fira Sans', sans-serif;

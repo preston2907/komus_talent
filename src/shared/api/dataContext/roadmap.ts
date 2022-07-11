@@ -3,7 +3,7 @@ import { httpService, ResponseResult } from "@shared/service/service";
 
 export class RoadmapData {
   getModules(): ResponseResult<ModuleType[]> {
-    const data = httpService<ModuleType[]>("GET", "getModules");
+    const data = httpService<ModuleType[]>("GET", "get_modules");
     return data;
   }
   getModuleById(payload: { moduleId: string }): ResponseResult<ModuleType> {

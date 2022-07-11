@@ -1,6 +1,6 @@
-import { CuratorContext } from "@shared/api/dataContext/fake";
+import { CuratorContext } from "@shared/api/dataContext";
 
-export const getCuratorListByGroupId = async (groupId: string) => {
-  const data = await CuratorContext.getCuratorListByGroupId({groupId})
+export const getCuratorListByCode = async (code: string) => {
+  const data = await CuratorContext.getCuratorListByGroupId({code})
   return data;
 };

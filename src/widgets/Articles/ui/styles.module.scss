@@ -1,6 +1,6 @@
 .root {
     display: grid;
-    gap: 30px;
+    gap: 15px;
     grid-template-areas:
         "card-0 card-1 card-1 card-6"
         "card-0 card-1 card-1 card-6"
@@ -21,6 +21,7 @@
         border-radius: 15px;
         display: flex;
         text-align: left;
+        width: auto;
 
         h1 {
             font-weight: 700;

@@ -44,41 +44,8 @@
   width: 0;
 }
 
-.modal-clever-content {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-  white-space: normal;
-  padding: 80px;
-  margin: 70px;
-  box-sizing: border-box;
-  border-radius: 20px;
-  top: -35px;
-  height: initial;
-  overflow-x: hidden;
 
-  &__wrapper {
-    width: 100%;
-    max-height: 80vh;
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .modal-clever-content {
-    width: 80%;
-    overflow-x: hidden;
-
-    .index-agile__top-text {
-      padding: 40px 25px;
-      font-size: 1.5rem;
-    }
-
-    .index-agile__info-text {
-      font-size: inherit
-    }
-  }
-}
 
 @keyframes fadeInOpacity {
   0% {

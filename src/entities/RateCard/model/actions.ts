@@ -1,4 +1,4 @@
-import { RateContext } from '@api/dataContext/fake';
+import { RateContext } from '@api/dataContext';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getUserRateByUserId = createAsyncThunk(

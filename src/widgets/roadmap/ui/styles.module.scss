@@ -1,5 +1,4 @@
 .root {
-    width: 1376px;
     margin: 0 auto;
     background: #FFFFFF;
     border-radius: 20px;
@@ -43,45 +42,46 @@
     .moduleCard {
         display: grid;
         grid-template-rows: 1fr auto;
-        height: 318px;
+        min-height: 318px;
     }
 
     .cardDisabled{
         background-color: var(--white) !important;
         opacity: 0.4;
         filter: grayscale(100%);
+        cursor: not-allowed !important;
+        pointer-events: none !important;
     }
 
     .content {
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-        line-height: 0.3;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 30px;
         font-family: 'Fira Sans';
         font-style: normal;
+        box-sizing: border-box;
         padding: 30px;
 
         h3 {
             font-weight: 700;
             font-size: 24px;
+            display: block;
         }
 
         span {
             font-style: normal;
-            font-size: 24px;
-            line-height: 135%;
-
-            /* or 32px */
+            font-size: 20px;
             text-transform: capitalize;
+        }
+
+        .date {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
         }
     }
 
-    .date {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        padding: 30px;
-    }
+
 
 }

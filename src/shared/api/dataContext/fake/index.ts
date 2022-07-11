@@ -8,6 +8,7 @@ import { RoadmapData } from './roadmap';
 import { CuratorData } from './curators';
 import { ExpertData } from './experts';
 import { ProgramData } from './program';
+import { ModalData } from './modal';
 
 export const UserContext = new UserData();
 export const GroupContext = new GroupData();
@@ -19,3 +20,4 @@ export const RoadmapContext = new RoadmapData();
 export const CuratorContext = new CuratorData();
 export const ExpertContext = new ExpertData();
 export const ProgramContext = new ProgramData();
+export const ModalContext = new ModalData();

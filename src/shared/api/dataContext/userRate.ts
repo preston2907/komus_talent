@@ -8,7 +8,7 @@ export class RateData {
   }): ResponseResult<RateType> {
     const data = httpService<RateType>(
       "GET",
-      "getUserRateByUserId",
+      "get_user_rating",
       `user_id=${payload.userId}`
     );
     return data;

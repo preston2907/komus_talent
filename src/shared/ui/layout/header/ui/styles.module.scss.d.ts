@@ -14,6 +14,7 @@ interface CssExports {
   'mainMenu__wrapper': string;
   'mainMenu_bird': string;
   'mainMenu_ellipse1': string;
+  'mainMenu_wrap': string;
   'root': string;
 }
 export const cssExports: CssExports;

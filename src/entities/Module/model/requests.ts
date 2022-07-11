@@ -1,4 +1,4 @@
-import { RoadmapContext } from "@api/dataContext/fake";
+import { RoadmapContext } from "@api/dataContext";
 
 export const getModules = async () => {
   const data = await RoadmapContext.getModules();

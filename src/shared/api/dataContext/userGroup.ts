@@ -13,7 +13,7 @@ export class GroupData {
   getGroupTutorByGroupId(payload: { groupId: string }): ResponseResult<UserType> {
     const data = httpService<UserType>(
       "GET",
-      "getGroupTutorByGroupId",
+      "get_tutor",
       `group_id=${payload.groupId}`
     );
     return data;
@@ -21,7 +21,7 @@ export class GroupData {
   getGroupCollaboratorsByGroupId(payload: { groupId: string }): ResponseResult<UserType[]> {
     const data = httpService<UserType[]>(
       "GET",
-      "getGroupCollaboratorsByGroupId",
+      "get_members",
       `group_id=${payload.groupId}`
     );
     return data;

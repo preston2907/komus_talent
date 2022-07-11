@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { UserContext } from "@shared/api/dataContext/fake";
+import { UserContext } from "@shared/api/dataContext";
 
 export const getCurrentUser = createAsyncThunk(
   "userSlice/getCurrentUser",
@@ -10,7 +10,7 @@ export const getCurrentUser = createAsyncThunk(
 );
 export const getUserById = createAsyncThunk(
   "userSlice/getUserById",
-  async (userId: string) => {
+  async (userId: string | null) => {
     const data = await UserContext.getUserById({ userId });
     return data;
   }

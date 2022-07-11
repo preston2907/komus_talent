@@ -54,7 +54,7 @@ const Roadmap: React.FC<RoadmapProps> = props => {
                 <ModuleCard
                   key={item.id}
                   className={cn(styles.moduleCard, {
-                    [styles.cardDisabled]: item.disabled === true
+                    [styles.cardDisabled]: item.disabled === true,
                   })}
                   style={{
                     background: setBgImage(),
@@ -62,11 +62,13 @@ const Roadmap: React.FC<RoadmapProps> = props => {
                     backgroundPositionX: "right",
                   }}
                 >
-                  <div className={styles.content}>
-                    <h3>{item.title}</h3>
-                    <span>{item.shortText}</span>
-                  </div>
-                  <div className={styles.date}>{item.date}</div>
+                  <a href={item.link} target="_blank">
+                    <div className={styles.content}>
+                      <h3>{item.title}</h3>
+                      <span>{item.shortText}</span>
+                      <div className={styles.date}>{item.date}</div>
+                    </div>
+                  </a>
                 </ModuleCard>
               );
             })}

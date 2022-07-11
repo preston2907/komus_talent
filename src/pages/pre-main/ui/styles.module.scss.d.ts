@@ -3,6 +3,7 @@
 interface CssExports {
   'reviewWrapper': string;
   'userWidgetWrapper': string;
+  'videoBox': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

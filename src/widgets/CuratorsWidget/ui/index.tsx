@@ -19,7 +19,7 @@ const CuratorsWidget: React.FC<CuratorsProps> = props => {
   const { className } = props;
 
   const { data, isLoading, isError } = useData<UserType[]>(() =>
-    curatorModel.requests.getCuratorListByGroupId("1")
+    curatorModel.requests.getCuratorListByCode("talant_kurators_junior")
   );
 
   return (

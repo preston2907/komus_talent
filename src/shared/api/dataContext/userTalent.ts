@@ -12,4 +12,13 @@ export class TalentData {
     );
     return data;
   }
+
+  getUserTalents(payload: { userId: string }): ResponseResult<UserTalentType> {
+    const data = httpService<UserTalentType>(
+      "GET",
+      "get_talents",
+      `user_id=${payload.userId}`
+    );
+    return data;
+  }
 }

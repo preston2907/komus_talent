@@ -1,7 +1,7 @@
 .root {
     z-index: 100;
-    height: 520px;
     margin-bottom: 35px;
+    height: 410px;
     position: relative;
     width: 100%;
     margin: auto;
@@ -9,6 +9,8 @@
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
+    display: flex;
+    justify-content: space-between;
 }
 
 .mainMenu_ellipse1 {
@@ -21,37 +23,45 @@
 
 .mainMenu_bird {
     position: absolute;
-    left: 59.44%;
-    right: 5.62%;
-    top: 17%;
-    bottom: 81.13%;
+    top: 59px;
+    & img {
+        width: 310px;
+    }
 }
 
 
 .mainMenu__wrapper {
     display: flex;
     justify-content: space-between;
-    max-width: 1440px;
     width: 100%;
-    margin: auto;
-    margin-bottom: 100px;
-    padding-top: 25px;
+    margin: 0 auto;
+    padding: 45px;
+    min-width: 1200px;
+}
+
+.mainMenu_wrap{
+    display: flex;
+    justify-content: space-between;
 }
 
 .mainMenu__logo {
     display: flex;
     position: relative;
     flex-grow: 0;
-    align-items: center;
+    align-items: flex-start;
     margin-left: 40px;
+    z-index: 1;
 }
 
 .mainMenu__userbar {
     display: flex;
+    flex-direction: column;
+    gap: 30px;
     position: relative;
     flex-grow: 0;
     align-items: center;
     margin-right: 45px;
+    margin-left: 45px;
 }
 
 .mainMenu__userContainer {
@@ -91,12 +101,9 @@
 }
 
 .mainMenu__item {
-    display: flex;
-    flex-direction: column;
-    max-width: 1440px;
-    width: 100%;
-    margin: auto;
-    padding-left: 40px;
+    position: absolute;
+    top: -69px;
+    margin-left: 30px;
 }
 
 .mainMenu__item1 {
@@ -108,6 +115,13 @@
 .mainMenu__item2 {
     font-weight: 300;
     font-size: 90px;
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    & img {
+        position: absolute;
+    }
 }
 
 .mainMenu__text {
@@ -134,8 +148,8 @@
     .mainMenu__item2 img {
         display: block;
         position: absolute;
-        top: 5px;
-        left: 282px;
+        top: -198px;
+        left: calc(50% - 494px);
     }
 }
 
@@ -143,7 +157,7 @@
     .mainMenu__item2 img {
         display: block;
         position: absolute;
-        top: 5px;
-        left: calc(50% - 436px);
+        top: -198px;
+        left: calc(50% - 494px);
     }
 }

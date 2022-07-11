@@ -15,7 +15,7 @@ export interface RateListItemDTO {
   groupName: string;
   groupId: string;
   curator: UserType;
-  talentsCount: UserTalentType["talentsCount"];
+  talentsCount: UserTalentType['talents'];
 }
 export interface CuratorItemDTO {
   tutors: UserType[];

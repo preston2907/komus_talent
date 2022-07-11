@@ -17,16 +17,38 @@ interface PreMainProps
 }
 
 const PreMain: React.FC<PreMainProps> = props => {
-  const { data, isLoading, isError } = useData<INews>(() =>
-    ProgramContext.getArticleByCode({ articleCode: "about_program" })
+  const { data, isLoading, isError } = useData<INews[]>(() =>
+    ProgramContext.getAboutProgram({ programCode: "about_program" })
   );
 
   return (
     <div className={cn(styles.userWidgetWrapper, props.className)}>
       <WithSkeleton isLoading={isLoading} isEmpty={data === null}>
-        <h1>О Программе</h1>
-
-        {data && <div dangerouslySetInnerHTML={{ __html: data.desc }} />}
+        {data &&
+          data.map(programItem => {
+            return (
+              <>
+                <h1>{programItem.header}</h1>
+                {programItem.video_arr.length && (
+                  <div className={styles.videoBox}>
+                    {programItem.video_arr.map(programVideoItem => (
+                      <video
+                        src={programVideoItem.source}
+                        poster={programVideoItem.poster}
+                        style={{ margin: '0 auto', display: 'block' }}
+                        controls
+                      />
+                    ))}
+                  </div>
+                )}
+                <main>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: programItem.main_text }}
+                  />
+                </main>
+              </>
+            );
+          })}
       </WithSkeleton>
       <div className={cn(styles.reviewWrapper)}>
         <ReviewSection

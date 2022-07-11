@@ -87,7 +87,7 @@ const Articles = () => {
           withBackground: true,
           payload: {
             onClick: () =>
-              ProgramContext.getArticleByCode({ articleCode: "about_program" }),
+              ProgramContext.getAboutProgram({ programCode: "about_program" }),
           },
         };
       default:

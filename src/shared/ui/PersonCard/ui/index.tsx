@@ -27,12 +27,12 @@ const PersonCard: React.FC<PersonCardProps> = props => {
         {showAvatar && (
           <div className={styles.userPic}>
             <img
-              src={`${process.env["PUBLIC"]}/${userPicLink}`}
+              src={`${process.env["PORTAL"]}${userPicLink}`}
               alt="userPhoto"
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = `${process.env["PUBLIC"]}/images/user-default.png`;
-              }}
+              // onError={({ currentTarget }) => {
+              //   currentTarget.onerror = null;
+              //   currentTarget.src = `${process.env["PUBLIC"]}/images/user-default.png`;
+              // }}
             />
           </div>
         )}

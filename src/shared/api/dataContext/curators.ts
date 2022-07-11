@@ -3,12 +3,12 @@ import { httpService, ResponseResult } from "@shared/service/service";
 
 export class CuratorData {
   getCuratorListByGroupId(payload: {
-    groupId: string;
+    code: string;
   }): ResponseResult<UserType[]> {
     const data = httpService<UserType[]>(
       "GET",
-      "getCuratorListByGroupId",
-      `code=${payload.groupId}`
+      "get_curators",
+      `code=${payload.code}`
     );
     return data;
   }
