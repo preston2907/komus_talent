@@ -11,6 +11,12 @@
     background-size: cover;
     display: flex;
     justify-content: space-between;
+
+    .user_photo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 }
 
 .mainMenu_ellipse1 {
@@ -24,6 +30,7 @@
 .mainMenu_bird {
     position: absolute;
     top: 59px;
+
     & img {
         width: 310px;
     }
@@ -37,9 +44,10 @@
     margin: 0 auto;
     padding: 45px;
     min-width: 1200px;
+    max-width: 1440px;
 }
 
-.mainMenu_wrap{
+.mainMenu_wrap {
     display: flex;
     justify-content: space-between;
 }
@@ -119,6 +127,7 @@
     display: block;
     width: auto;
     height: auto;
+
     & img {
         position: absolute;
     }

@@ -3,6 +3,9 @@ import Arrow from "@shared/ui/icons/Arrow";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import cn from "classnames";
 import styles from "./styles.module.scss";
+import { useSelector } from 'react-redux';
+import { userModel } from '@src/entities/User';
+import { UserType } from '@src/shared/api/types';
 
 interface TableProps
   extends DetailedHTMLProps<
@@ -11,6 +14,8 @@ interface TableProps
   > {
   className?: string;
   data?: RateListItemDTO[];
+  raitingId?: number;
+  user: UserType
 }
 
 const useSortableData = (items, config = null) => {
@@ -42,7 +47,7 @@ const useSortableData = (items, config = null) => {
     return sortableItems;
   }, [items, sortConfig]);
 
-  const requestSort = (key: any, param:any = null) => {
+  const requestSort = (key: any, param: any = null) => {
     let direction = "ascending";
     if (
       sortConfig &&
@@ -58,7 +63,7 @@ const useSortableData = (items, config = null) => {
 };
 
 const TableContent: React.FC<TableProps> = props => {
-  const { className, data } = props;
+  const { className, data, raitingId, user } = props;
 
   const { items, requestSort, sortConfig } = useSortableData(data);
 
@@ -90,26 +95,33 @@ const TableContent: React.FC<TableProps> = props => {
             <div>
               <span onClick={() => requestSort("groupName")}>
                 Название группы
-                <img
-                  src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
-                  onClick={() => requestSort("groupName")}
-                  className={cn(
-                    styles.direction,
-                    getClassNamesFor("groupName")
-                  )}
-                />
+                {raitingId !== 2 && (
+                  <img
+                    src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                    onClick={() => requestSort("groupName")}
+                    className={cn(
+                      styles.direction,
+                      getClassNamesFor("groupName")
+                    )}
+                  />
+                )}
               </span>
             </div>
-            <div>
-              <span onClick={() => requestSort("curator", "fullname")}>
-                Куратор
-                <img
-                  src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
-                  onClick={() => requestSort("curator", "fullname")}
-                  className={cn(styles.direction, getClassNamesFor("fullname"))}
-                />
-              </span>
-            </div>
+            {raitingId !== 2 && (
+              <div>
+                <span onClick={() => requestSort("curator", "fullname")}>
+                  Куратор
+                  <img
+                    src={`${process.env["PUBLIC"]}/images/icons/arrows.png`}
+                    onClick={() => requestSort("curator", "fullname")}
+                    className={cn(
+                      styles.direction,
+                      getClassNamesFor("fullname")
+                    )}
+                  />
+                </span>
+              </div>
+            )}
           </th>
           <th>
             <span onClick={() => requestSort("talentsCount")}>
@@ -127,9 +139,14 @@ const TableContent: React.FC<TableProps> = props => {
         </tr>
       </thead>
       <tbody className={styles.table__tbody}>
-        {data &&
+        {data && 
           items.map((item, i) => (
-            <tr key={i} className={styles.table__row}>
+            <tr
+              key={i}
+              className={cn(styles.table__row, {
+                [styles.table__row__my]: item.curator.id === user.id,
+              })}
+            >
               <td className={styles.table__place_td}>
                 <span className={styles.table__place_td__place_num}>
                   {item.placeInRaiting}

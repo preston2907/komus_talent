@@ -1,4 +1,4 @@
-import { UserContext } from "@shared/api/dataContext/fake";
+import { UserContext } from "@shared/api/dataContext";
 
 export const getUserRequestStateByUserId = async (userId: string) => {
   const data = await UserContext.getUserRequestStatus({ userId });

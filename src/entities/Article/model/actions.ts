@@ -1,27 +1,11 @@
-import { ArticleContext } from "@api/dataContext/fake";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// export const getArticleById = createAsyncThunk(
-//   "articleSlice/getArticleById",
-//   async (articleId: string) => {
-//     const data = await ArticleContext.getArticle({ articleId });
-//     return data;
-//   }
-// );
-// export const getArticles = createAsyncThunk(
-//   "articleSlice/getArticles",
-//   async () => {
-//     const data = await ArticleContext.getArticles();
-//     return data;
-//   }
-// );
+import { ArticlesContext } from "@api/dataContext/fake";
 
 export const getArticleById = async (articleId: string) => {
-  const data = await ArticleContext.getArticle({ articleId });
+  const data = await ArticlesContext.getArticle({ articleId });
   return data;
 };
 
 export const getArticles = async () => {
-  const data = await ArticleContext.getArticles();
+  const data = await ArticlesContext.getArticles();
   return data;
 };

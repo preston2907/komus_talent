@@ -45,7 +45,6 @@
     .card-1 {
         background-repeat: no-repeat;
         background-position-x: right;
-
     }
 
     .card-2 {
@@ -98,6 +97,9 @@
     }
 
     .card-1 {
+
+        background-position: 300px !important;
+
         grid-area: card-1;
         height: 318px;
 
@@ -106,9 +108,11 @@
         &_position {
             width: 300px;
         }
+
     }
 
     .card-2 {
+        background-position: 300px !important;
         grid-area: card-2;
         height: 318px;
 
@@ -171,6 +175,13 @@
     .card-6 {
         padding: 30px;
         width: 90%;
+    }
+
+    .card-1 {
+        background-position: auto;
+    }
+    .card-2 {
+        background-position: auto;
     }
 
 }

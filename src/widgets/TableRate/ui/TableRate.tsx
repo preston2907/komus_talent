@@ -5,7 +5,7 @@ import { ReviewSection } from "@shared/ui/layout/review";
 
 import { useData } from "@shared/helpers/hooks/useData";
 import { INews } from "@shared/api/interfaces";
-import { ProgramContext, RateContext } from "@shared/api/dataContext/fake";
+import { ProgramContext, RateContext } from "@shared/api/dataContext";
 import { WithSkeleton } from "@shared/ui/WithSkeleton";
 
 import styles from "./styles.module.scss";
@@ -19,6 +19,8 @@ import classNames from "classnames";
 
 import { RateListItemDTO } from "@shared/api/dto";
 import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { userModel } from "@entities/User";
 
 export interface IFilterItems {
   id: number;
@@ -49,11 +51,20 @@ const Rates: React.FC<any> = props => {
 
   const { data, isError, isLoading } = useData<RateListItemDTO[]>(
     () =>
-      RateContext.getRateListByRaitingId({
-        raitingId: "1",
-        filterId: filterItemId,
-      }),
+    RateContext.getRateListByRaitingId({
+      raitingId: filterItemId,
+    }),
     [filterItemId]
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userModel.actions.getUserById(null));
+  }, [dispatch]);
+
+  const user = useSelector(
+    (state: { user: userModel.slices.UserState }) => state.user
   );
 
   useEffect(() => {
@@ -97,7 +108,7 @@ const Rates: React.FC<any> = props => {
         </div>
 
         <WithSkeleton isLoading={isLoading} isEmpty={data === null}>
-          {filterData && <Table data={filterData} />}
+          {!user.isLoading && filterData && <Table data={filterData} raitingId={filterItemId} user={user.entity}/>}
         </WithSkeleton>
       </div>
     </div>

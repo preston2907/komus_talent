@@ -85,6 +85,7 @@ const Modal = (props: Props) => {
       <div className="modal-clever-content" style={customStyle}>
         {modalState.isShow && (
           <div className="modal-clever-content__wrapper">
+
             <Component {...modalState.payload} />
           </div>
         )}

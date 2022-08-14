@@ -22,7 +22,14 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/view_doc.html?mode=komus_talents" element={<Main />} />
+          <Route
+            path="/view_doc.html?mode=komus_talents"
+            element={
+              <PrivatePage>
+                <Main />
+              </PrivatePage>
+            }
+          />
           <Route path="/komus_talents/pre" element={<PreMain />} />
           <Route
             path="/komus_talents"

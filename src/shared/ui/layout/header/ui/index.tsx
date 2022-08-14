@@ -1,10 +1,10 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, useEffect } from "react";
 import cn from "classnames";
 import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
 import { UserType } from "@shared/api/types";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userModel } from "@entities/User";
 import { WithSkeleton } from "@shared/ui/WithSkeleton";
 
@@ -15,6 +15,12 @@ interface HeaderProps
 
 const Header: React.FC<HeaderProps> = props => {
   const { className, style } = props;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userModel.actions.getUserById(null));
+  }, [dispatch]);
 
   const userState = useSelector(
     (state: { user: userModel.slices.UserState }) => state.user
@@ -52,10 +58,11 @@ const Header: React.FC<HeaderProps> = props => {
               {userState.entity && (
                 <a href="" className={styles.mainMenu__userLink}>
                   <div className={styles.mainMenu__userQuest}>
-                    Задать вопрос
+                   Личный кабинет
                   </div>
                   <img
-                    src={`${process.env["PUBLIC"]}/images/user.png`}
+                  className={styles.user_photo}
+                    src={`${process.env["PORTAL"]}${userState.entity.photo}`}
                     alt=""
                   />
                   <div className={styles.mainMenu__userName}>

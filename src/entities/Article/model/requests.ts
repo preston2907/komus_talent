@@ -1,12 +1,12 @@
-import { ArticleContext } from '@api/dataContext/fake';
+import { ArticlesContext } from '@api/dataContext/fake';
 
 export const getArticleById = async (articleId: string) => {
-    const data = await ArticleContext.getArticle({ articleId });
+    const data = await ArticlesContext.getArticle({ articleId });
     return data;
   };
   
   export const getArticles = async () => {
-    const data = await ArticleContext.getArticles();
+    const data = await ArticlesContext.getArticles();
     return data;
   };
   

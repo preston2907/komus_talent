@@ -6,6 +6,7 @@ interface CssExports {
   'table__place_td': string;
   'table__place_td__place_num': string;
   'table__row': string;
+  'table__row__my': string;
   'table__tbody': string;
   'table__thead': string;
   'table__thead__th__flex': string;

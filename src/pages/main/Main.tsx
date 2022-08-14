@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withLayout } from "@ui/layout";
 import { UserWidgets } from "@widgets/UserWidgets/ui";
 import { Articles } from "../../widgets/Articles/ui/Articles";
@@ -19,7 +19,7 @@ const Main: React.FC<any> = () => {
         <ReviewSection
           text="Помогите нам стать лучше"
           buttonText="Оставить отзыв"
-          onClick={() => {}}
+          linkTo={`mailto:myv_dp@bony.komus.net?subject=Обратная Связь по Комус Талантам`}
         />
       </div>
     </div>

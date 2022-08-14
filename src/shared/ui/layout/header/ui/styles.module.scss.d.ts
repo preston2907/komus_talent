@@ -16,6 +16,7 @@ interface CssExports {
   'mainMenu_ellipse1': string;
   'mainMenu_wrap': string;
   'root': string;
+  'user_photo': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

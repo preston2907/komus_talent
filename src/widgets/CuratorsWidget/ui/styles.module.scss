@@ -16,8 +16,21 @@
     gap: 30px;
   }
 
+
   &__curator_card {
+    max-width: max-content;
     width: 100%;
     height: 100%;
+  }
+
+
+  @media screen and (max-width: 1250px) {
+    &__wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__curator_card {
+      width: 390px;
+    }
   }
 }

@@ -17,5 +17,14 @@ export class UserData {
     );
     return data;
   }
+
+  getUserRequestStatus(payload: { userId: string }): ResponseResult<{status: boolean}> {
+    const data = httpService<{status: boolean}>(
+      "GET",
+      "get_user_request_status",
+      `user_id=${payload.userId}`
+    );
+    return data;
+  }
 }
 

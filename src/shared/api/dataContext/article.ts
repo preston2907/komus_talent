@@ -7,7 +7,7 @@ export class ArticleData {
     return data;
   }
 
-  getArticle(payload: { articleId: number }): ResponseResult<ArticleType> {
+  getArticle(payload: { articleId: string }): ResponseResult<ArticleType> {
     const data = httpService<ArticleType>(
       "GET",
       "getArticles",

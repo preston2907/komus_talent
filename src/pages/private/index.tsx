@@ -19,7 +19,7 @@ const PrivatePage: React.FC<Props> = (props: any) => {
   const [status, setStatus] = useLocalStorage("status", null);
 
   useEffect(() => {
-    dispatch(userModel.actions.getCurrentUser());
+    dispatch(userModel.actions.getUserById(null));
   }, [dispatch]);
 
   const userResponse = useSelector(
@@ -44,7 +44,7 @@ const PrivatePage: React.FC<Props> = (props: any) => {
   if (status === null) {
     return <Spinner />;
   }
-  return <div>{status === true ? children : <Navigate to="/pre" />}</div>;
+  return status === true ? children : <Navigate to="/komus_talents/pre" />;
 };
 
 export { PrivatePage };

@@ -1,13 +1,6 @@
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
-import { RateListItemDTO } from "@shared/api/dto";
-
-import { useData } from "@shared/helpers/hooks/useData";
-import { RateContext } from "@shared/api/dataContext/fake";
-import { WithSkeleton } from "@shared/ui/WithSkeleton";
 import TableContent from "./components/TableContent/ui";
-
-import cn from "classnames";
-import styles from "./styles.module.scss";
+import { UserType } from '@src/shared/api/types';
 
 interface ITableBody
   extends DetailedHTMLProps<
@@ -16,12 +9,14 @@ interface ITableBody
   > {
   className?: string;
   data?: any;
+  raitingId: number
+  user: UserType
 }
 
 const Table: React.FC<ITableBody> = props => {
-  const { className, data } = props;
+  const { className, data, raitingId, user } = props;
 
-  return <TableContent data={data} />;
+  return <TableContent data={data} raitingId={raitingId} user={user}/>;
 };
 
 export default Table;

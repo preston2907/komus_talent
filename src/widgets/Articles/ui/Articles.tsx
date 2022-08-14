@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
 import { modalActions } from "@features/Modal/redux/ModalSlices";
 import { ModalKey } from "@features/Modal/components/ModalController";
-import { ProgramContext } from "@shared/api/dataContext/fake";
+import { ProgramContext } from "@shared/api/dataContext";
 
 const Articles = () => {
   const { data, isLoading, isError } = useData<ArticleType[]>(() =>
