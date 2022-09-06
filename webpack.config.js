@@ -107,9 +107,9 @@ module.exports = {
       filename: 'index.css',
     }),
     new DefinePlugin({
-      "process.env.PUBLIC": isDevMode ? JSON.stringify("") : JSON.stringify("http://172.16.3.123:81/komus_tal/app/build/public"),
+      "process.env.PUBLIC": isDevMode ? JSON.stringify("http://172.16.3.123:81/komus_tal/app/build/public") : JSON.stringify("/komus_tal/app/build/public"),
       "process.env.PORTAL": isDevMode ? JSON.stringify("http://172.16.3.123:81") : JSON.stringify(""),
-      "process.env.SERVER": JSON.stringify("http://172.16.3.123:81/komus_tal"),
+      "process.env.SERVER": isDevMode ? JSON.stringify("http://172.16.3.123:81/komus_tal") : JSON.stringify("http://sdo.komus.net/komus_tal")
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
