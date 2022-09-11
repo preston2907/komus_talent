@@ -77,6 +77,22 @@ const Articles = () => {
     switch (articleKey) {
       case "curators":
         return { ModalKey: ModalKey.CuratorsWidget, withBackground: false };
+      case "contacts":
+        return {
+          ModalKey: ModalKey.NewsWidget,
+          withBackground: true,
+          payload: {
+            onClick: () => ProgramContext.getContacts(),
+          },
+        };
+      case "instructions":
+        return {
+          ModalKey: ModalKey.NewsWidget,
+          withBackground: true,
+          payload: {
+            onClick: () => ProgramContext.getInstructions(),
+          },
+        };
       case "experts":
         return { ModalKey: ModalKey.ExpertsWidget, withBackground: false };
       case "roadmap":
@@ -98,12 +114,9 @@ const Articles = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = (groupId: string, articleKey: string) => {
-    if (articleKey === "contacts") {
-      window.location.href = "/komus_talents";
-    } else if (articleKey === "calendar") {
-      window.location.href = "/komus_talents";
-    } else if (articleKey === "instruction") {
-      window.location.href = "/komus_talents";
+    console.log(articleKey)
+    if (articleKey === "calendar") {
+      window.location.href = "/view_doc.html?mode=calendar";
     } else {
       dispatch(
         modalActions.showModal({

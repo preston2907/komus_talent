@@ -23,7 +23,7 @@ export const articleData: ArticleType[] = [
   },
   {
     articleId: "3",
-    articleKey: "instruction",
+    articleKey: "instructions",
     createDate: "03.05.2021",
     title: "Инструкции",
     shortText: "Чтобы эффективно обучаться, ознакомьтесь с инструкциями",
